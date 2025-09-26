@@ -11,7 +11,7 @@ function Home() {
     const fetchPortfolio = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8081/api/portfolio/user/${userId}`
+          `http://portfolio-backend:8080/api/portfolio/user/${userId}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -83,7 +83,7 @@ function Home() {
           <div className="portfolio-card">
             {portfolio.imageUrl && (
               <img
-                src={`http://localhost:8081${portfolio.imageUrl}`}
+                src={`http://portfolio-backend:8080${portfolio.imageUrl}`}
                 alt="Profile"
                 className="portfolio-image"
                 onError={(e) => {
