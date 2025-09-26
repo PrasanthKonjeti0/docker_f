@@ -10,7 +10,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8081/api/auth/login", {
+      const response = await fetch("http://portfolio-backend:8080/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -21,7 +21,7 @@ function Login() {
         localStorage.setItem("username", data.username);
 
         const userResponse = await fetch(
-          `http://localhost:8081/api/auth/user/${data.username}`
+          `http://portfolio-backend:8080/api/auth/user/${data.username}`
         );
 
         if (userResponse.ok) {
@@ -42,7 +42,7 @@ function Login() {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch("http://localhost:8081/api/auth/signup", {
+      const response = await fetch("http://portfolio-backend:8080/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
